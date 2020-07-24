@@ -1,0 +1,7 @@
+{
+  // "ngRouterLinkActiveOptions": {
+  //   "prefix": "a-routerLinkActiveOptions",
+  //   "body": ["[routerLinkActiveOptions]=\"{exact: true}\""],
+  //   "description": "Angular routerLinkActiveOptions"
+  // }
+}
