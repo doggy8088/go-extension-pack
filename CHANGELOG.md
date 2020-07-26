@@ -2,6 +2,16 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.3.0 - 2020-07-27
+
+* Add [vscode-proto3](https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3) extension
+* Add recommended settings in README:
+  * `"go.useLanguageServer": true`
+  * `"editor.snippetSuggestions": "top"`
+* Add two statements snippets
+  * `forc`: for loop with custom conditions
+  * `forb`: for loop with break (infinite loop)
+
 ## 0.2.1 - 2020-07-26
 
 * Add a recommended setting  `"code-runner.ignoreSelection": true` to [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner).

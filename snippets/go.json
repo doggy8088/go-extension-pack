@@ -5,5 +5,23 @@
 			"fmt.Printf(\"${1:var}: %#+v\\n\", ${1:var})"
 		],
 		"description": "fmt.Printf() with variable content"
+	},
+	"for loop with custom condition": {
+		"prefix": "forc",
+		"body": [
+      "for ${1:i <= 3} {",
+      "    ${0}",
+      "}"
+		],
+		"description": "Snippet for a for loop with custom condition"
+	},
+	"for loop with break": {
+		"prefix": "forb",
+		"body": [
+      "for {",
+      "    ${0}","    break",
+      "}"
+		],
+		"description": "Snippet for a for loop with break"
 	}
 }

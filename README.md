@@ -70,17 +70,26 @@ This extension pack include some of the popular (and some of my favorite) Go ext
         * `tl`: t.Log()
         * `tlf`: t.Logf()
         * `tlv`: t.Logf() with variable content
+  * Recommended VSCode Settings:
+
+      In order to use `gorename` feature, you have to enable `Go: Use Language Server` option. See [this](https://github.com/golang/vscode-go/issues/92#issuecomment-634373662) and [this](https://github.com/microsoft/vscode-go/issues/2074#issuecomment-507117831).
+
+      ```json
+      {
+        "go.useLanguageServer": true
+      }
+      ```
 
 * [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
   * Run code: `Ctrl+Alt+N`
   * Stop run: `Ctrl+Alt+M`
-  * Recommended Settings:
+  * Recommended VSCode Settings:
 
       ```json
       {
           "code-runner.saveAllFilesBeforeRun": true,
-          "code-runner.runInTerminal": true,
-          "code-runner.ignoreSelection": true
+          "code-runner.ignoreSelection": true,
+          "code-runner.runInTerminal": true
       }
       ```
 
@@ -90,6 +99,9 @@ This extension pack include some of the popular (and some of my favorite) Go ext
 
 * [Gremlins tracker for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=nhoizey.gremlins)
   * Reveals some characters that can be harmful because they are invisible or looking like legitimate ones. It could possibly cost you few hours to find out problems.
+
+* [vscode-proto3](https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3)
+  * Protobuf 3 support for Visual Studio Code
 
 ## Recommended Settings
 
@@ -107,6 +119,16 @@ This extension pack include some of the popular (and some of my favorite) Go ext
   * `Alt-g Alt-i`: **Go: Generate Interface Stubs** (`go.test.generate.package`)
 
 ### Visual Studio Code
+
+* Editor: Snippet Suggestions
+
+    Show snippet suggestions on top of other suggestions.
+
+    ```json
+    {
+      "editor.snippetSuggestions": "top"
+    }
+    ```
 
 * Configure Tasks
 
@@ -170,6 +192,9 @@ This extension will contains supplementary code snippets to [Go](https://marketp
 
 * fmt
   * `fv`: fmt.Printf() with variable content
+* statements
+  * `forc`: for loop with custom conditions
+  * `forb`: for loop with break (infinite loop)
 * TODO
   * Add "Comments" to each declaration snippets (`go vet`)
 

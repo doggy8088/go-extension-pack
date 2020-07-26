@@ -2,7 +2,7 @@
   "name": "go-extension-pack",
   "displayName": "Go Extension Pack",
   "description": "Popular Visual Studio Code extensions for Go Development",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "publisher": "doggy8088",
   "icon": "icon.png",
   "preview": true,
@@ -16,6 +16,7 @@
   ],
   "extensionPack": [
     "golang.Go",
+    "zxh404.vscode-proto3",
     "formulahendry.code-runner",
     "quicktype.quicktype",
     "nhoizey.gremlins"
