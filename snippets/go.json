@@ -1,10 +1,9 @@
 {
-  // https://snippet-generator.app/
-  // "fmt.Printf with variable content": {
-  //   "prefix": "fv",
-  //   "body": [
-  //     "fmt.Printf(\"${var}: %#+v\\n\", ${var})"
-  //   ],
-  //   "description": "fmt.Printf() with variable content"
-  // }
+	"fmt.Printf with variable content": {
+		"prefix": "fv",
+		"body": [
+			"fmt.Printf(\"${1:var}: %#+v\\n\", ${1:var})"
+		],
+		"description": "fmt.Printf() with variable content"
+	}
 }

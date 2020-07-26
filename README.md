@@ -79,7 +79,8 @@ This extension pack include some of the popular (and some of my favorite) Go ext
       ```json
       {
           "code-runner.saveAllFilesBeforeRun": true,
-          "code-runner.runInTerminal": true
+          "code-runner.runInTerminal": true,
+          "code-runner.ignoreSelection": true
       }
       ```
 
