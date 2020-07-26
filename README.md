@@ -17,7 +17,7 @@ This extension pack include some of the popular (and some of my favorite) Go ext
         * `fmain`: main function
         * `finit`: init function
         * `go`: anonymous `goroutine` declaration
-        * ~~`ef`: Example function~~
+        * ~~ `ef`: Example function ~~
       * `meth`: `method` declaration
     * imports
       * `im`: `import` statement
@@ -74,6 +74,14 @@ This extension pack include some of the popular (and some of my favorite) Go ext
 * [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
   * Run code: `Ctrl+Alt+N`
   * Stop run: `Ctrl+Alt+M`
+  * Recommended Settings:
+
+      ```json
+      {
+          "code-runner.saveAllFilesBeforeRun": true,
+          "code-runner.runInTerminal": true
+      }
+      ```
 
 * [Paste JSON as Code](https://marketplace.visualstudio.com/items?itemName=quicktype.quicktype)
   * `quicktype` infers types from sample JSON data, then outputs strongly typed models and serializers for working with that data in your desired programming language. For more explanation, read [A first look at quicktype](http://blog.quicktype.io/first-look/).
@@ -159,7 +167,10 @@ This extension will contains supplementary code snippets to [Go](https://marketp
 
 ### Go snippets
 
+* fmt
+  * `fv`: fmt.Printf() with variable content
 * TODO
+  * Add "Comments" to each declaration snippets (`go vet`)
 
 ### Dockerfile snippets
 

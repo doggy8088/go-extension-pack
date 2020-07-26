@@ -1,7 +1,10 @@
 {
-  // "ngRouterLinkActiveOptions": {
-  //   "prefix": "a-routerLinkActiveOptions",
-  //   "body": ["[routerLinkActiveOptions]=\"{exact: true}\""],
-  //   "description": "Angular routerLinkActiveOptions"
+  // https://snippet-generator.app/
+  // "fmt.Printf with variable content": {
+  //   "prefix": "fv",
+  //   "body": [
+  //     "fmt.Printf(\"${var}: %#+v\\n\", ${var})"
+  //   ],
+  //   "description": "fmt.Printf() with variable content"
   // }
 }
