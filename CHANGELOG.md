@@ -2,6 +2,10 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.3.1 - 2020-07-27
+
+- change vscode dep. to `^1.41.0`.
+
 ## 0.3.0 - 2020-07-27
 
 * Add [vscode-proto3](https://marketplace.visualstudio.com/items?itemName=zxh404.vscode-proto3) extension
