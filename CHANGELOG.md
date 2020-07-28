@@ -2,9 +2,14 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.3.3 - 2020-07-28
+
+* Put some testing function template snippets together.
+* Add some recommended keyboard bindings.
+
 ## 0.3.1 - 2020-07-27
 
-- change vscode dep. to `^1.41.0`.
+* change vscode dep. to `^1.41.0`.
 
 ## 0.3.0 - 2020-07-27
 

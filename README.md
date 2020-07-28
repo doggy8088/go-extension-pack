@@ -17,7 +17,6 @@ This extension pack include some of the popular (and some of my favorite) Go ext
         * `fmain`: main function
         * `finit`: init function
         * `go`: anonymous `goroutine` declaration
-        * ~~ `ef`: Example function ~~
       * `meth`: `method` declaration
     * imports
       * `im`: `import` statement
@@ -63,9 +62,10 @@ This extension pack include some of the popular (and some of my favorite) Go ext
       * `sv`: http.Serve()
     * testing
       * function template
+        * `tdt`: table driven test function
         * `tf`: Test function
         * `bf`: Benchmark function
-        * `tdt`: table driven test function
+        * `ef`: Example function
       * common api
         * `tl`: t.Log()
         * `tlf`: t.Logf()
@@ -117,6 +117,8 @@ This extension pack include some of the popular (and some of my favorite) Go ext
   * `Alt-g Alt-f`: **Go: Generate Unit Tests For File** (`go.test.generate.file`)
   * `Alt-g Alt-p`: **Go: Generate Unit Tests For Package** (`go.test.generate.package`)
   * `Alt-g Alt-i`: **Go: Generate Interface Stubs** (`go.test.generate.package`)
+  * `Alt-g Alt-t`: **Go: Add Tags To Struct FIelds** (`go.add.tags`)
+  * `Alt-g Alt-r`: **Go: Add Tags From Struct FIelds** (`go.remove.tags`)
 
 ### Visual Studio Code
 

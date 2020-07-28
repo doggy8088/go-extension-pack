@@ -2,7 +2,7 @@
   "name": "go-extension-pack",
   "displayName": "Go Extension Pack",
   "description": "Popular Visual Studio Code extensions for Go Development",
-  "version": "0.3.1",
+  "version": "0.3.3",
   "publisher": "doggy8088",
   "icon": "icon.png",
   "preview": true,
