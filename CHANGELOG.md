@@ -2,6 +2,10 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.3.4 - 2020-07-29
+
+* Update README.md
+
 ## 0.3.3 - 2020-07-28
 
 * Put some testing function template snippets together.

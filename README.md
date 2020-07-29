@@ -81,8 +81,8 @@ This extension pack include some of the popular (and some of my favorite) Go ext
       ```
 
 * [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
-  * Run code: `Ctrl+Alt+N`
-  * Stop run: `Ctrl+Alt+M`
+  * Run code: `Ctrl+Alt+N` (`code-runner.run`)
+  * Stop run: `Ctrl+Alt+M` (`code-runner.stop`)
   * Recommended VSCode Settings:
 
       ```json
