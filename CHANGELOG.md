@@ -2,6 +2,10 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.4.2 - 2020-07-30
+
+* Add more [gopls](https://github.com/golang/vscode-go/blob/master/docs/gopls.md) information and settings in the README.md
+
 ## 0.4.1 - 2020-07-30
 
 * Add [Go Doc](https://marketplace.visualstudio.com/items?itemName=msyrus.go-doc) extension

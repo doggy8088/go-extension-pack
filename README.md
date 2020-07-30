@@ -119,11 +119,15 @@ This extension pack include some of the popular (and some of my favorite) Go ext
 
     In order to use `Rename Symbol` ([gorename](https://pkg.go.dev/golang.org/x/tools/cmd/gorename?tab=doc)) feature, you have to enable `Go: Use Language Server` option. See [this](https://github.com/golang/vscode-go/issues/92#issuecomment-634373662) and [this](https://github.com/microsoft/vscode-go/issues/2074#issuecomment-507117831).
 
-    > [gopls](https://github.com/golang/tools/tree/master/gopls) (pronounced: "go please") is the official [language server](https://langserver.org/) for the Go language.
+    > [gopls](https://github.com/golang/vscode-go/blob/master/docs/gopls.md) (pronounced: "go please") is the official [language server](https://langserver.org/) for the Go language. Check the [VSCode](https://github.com/golang/tools/blob/master/gopls/doc/vscode.md) page for further information. For complete gopls Settings, please [check here](https://github.com/golang/tools/blob/master/gopls/doc/settings.md).
 
     ```json
     {
       "go.useLanguageServer": true,
+      "go.languageServerExperimentalFeatures": {
+        "diagnostics": false,
+        "documentLink": true,
+      },
       "[go]": {
         "editor.formatOnSave": true,
         "editor.codeActionsOnSave": {
@@ -136,6 +140,14 @@ This extension pack include some of the popular (and some of my favorite) Go ext
             "source.organizeImports": true,
         },
       },
+      "gopls": {
+        // Add parameter placeholders when completing a function.
+        "usePlaceholders": true,
+
+        // If true, enable additional analyses with staticcheck.
+        // Warning: This will significantly increase memory usage.
+        "staticcheck": false,
+      }
     }
     ```
 
