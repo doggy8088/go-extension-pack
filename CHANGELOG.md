@@ -2,6 +2,12 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.4.1 - 2020-07-30
+
+* Add [Go Doc](https://marketplace.visualstudio.com/items?itemName=msyrus.go-doc) extension
+* Move all the Visual Studio Code recommended settings together.
+* Add **Usage** information for each extensions.
+
 ## 0.3.4 - 2020-07-29
 
 * Update README.md

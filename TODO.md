@@ -57,15 +57,14 @@
 
     https://vimeo.com/394345925
 
-
     Compare to GoLand:
 
     1. No Refactoring tool at this time.
 
-        - Extract function
-        - Extract variable
+        - ~~Extract function~~
+        - ~~Extract variable~~
+        - ~~Choose interface to implement~~
         - Create method
-        - Choose interface to implement
         - Generate constructor
 
     2. IntelliSense in a Template
