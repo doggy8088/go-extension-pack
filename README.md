@@ -139,14 +139,6 @@ This extension pack include some of the popular (and some of my favorite) Go ext
         "editor.codeActionsOnSave": {
             "source.organizeImports": true,
         },
-      },
-      "gopls": {
-        // Add parameter placeholders when completing a function.
-        "usePlaceholders": true,
-
-        // If true, enable additional analyses with staticcheck.
-        // Warning: This will significantly increase memory usage.
-        "staticcheck": false,
       }
     }
     ```

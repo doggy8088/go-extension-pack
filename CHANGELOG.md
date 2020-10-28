@@ -2,6 +2,10 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.5.1 - 2020-10-29
+
+* Update README.md for `gopls` description
+
 ## 0.5.0 - 2020-10-29
 
 * Add more Go snippets
