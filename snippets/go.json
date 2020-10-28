@@ -1,27 +1,344 @@
 {
-	"fmt.Printf with variable content": {
-		"prefix": "fv",
-		"body": [
-			"fmt.Printf(\"${1:var}: %#+v\\n\", ${1:var})"
-		],
-		"description": "fmt.Printf() with variable content"
-	},
-	"for loop with custom condition": {
-		"prefix": "forc",
-		"body": [
+  "fmt.Printf with variable content": {
+    "prefix": "fv",
+    "body": [
+      "fmt.Printf(\"${1:var}: %#+v\\n\", ${1:var})"
+    ],
+    "description": "fmt.Printf() with variable content"
+  },
+  "for loop with custom condition": {
+    "prefix": "forc",
+    "body": [
       "for ${1:i <= 3} {",
       "    ${0}",
       "}"
-		],
-		"description": "Snippet for a for loop with custom condition"
-	},
-	"for loop with break": {
-		"prefix": "forb",
-		"body": [
+    ],
+    "description": "for loop with custom condition"
+  },
+  "for loop with break": {
+    "prefix": "forb",
+    "body": [
       "for {",
-      "    ${0}","    break",
+      "    ${0}",
+      "    break",
       "}"
-		],
-		"description": "Snippet for a for loop with break"
-	}
+    ],
+    "description": "for loop with break"
+  },
+  "Generate Go CLI sample": {
+    "prefix": "g-cli",
+    "body": [
+      "$0package main",
+      "",
+      "import (",
+      "    \"flag\"",
+      "    \"fmt\"",
+      ")",
+      "",
+      "var (",
+      "    isEnabled = flag.Bool(\"enable\", false, \"To enable something\")",
+      "    port      = flag.String(\"port\", \"8080\", \"The port of http.\")",
+      "    count     = flag.Int(\"count\", 10, \"Set count\")",
+      ")",
+      "",
+      "/**",
+      " * Show Help: `go run . --help` or `go run . -h`",
+      " */",
+      "func main() {",
+      "",
+      "    flag.Parse()",
+      "",
+      "    var args = flag.Args()",
+      "",
+      "    // command: go run . --port 8000 arg123",
+      "    // print: false 8000 10 [arg123]",
+      "    fmt.Println(*isEnabled, *port, *count, args)",
+      "",
+      "}",
+      ""
+    ],
+    "description": "Generate Go CLI sample"
+  },
+  "Generate json.Marshal": {
+    "prefix": "g-json-marshal",
+    "body": [
+      "$0${1:u} := User{Id: 10, Name: \"Duotify\"}",
+      "${2:b}, err := json.Marshal(${1})",
+      "if err != nil {",
+      "    log.Print(err)",
+      "}",
+      "fmt.Println(string(${2}))"
+    ],
+    "description": "Generate json.Marshal"
+  },
+  "Generate json.Unmarshal": {
+    "prefix": "g-json-unmarshal",
+    "body": [
+      "$0var ${1:b} = []byte(`{\"Id\":10,\"Name\":\"Duotify\"}`)",
+      "var ${2:u} ${3:User}",
+      "err := json.Unmarshal(${1}, &${2})",
+      "if err != nil {",
+      "    log.Print(err)",
+      "}",
+      "fmt.Println(${2})"
+    ],
+    "description": "Generate json.Unmarshal"
+  },
+  "Generate json.NewDecoder": {
+    "prefix": "g-json-newdecoder",
+    "body": [
+      "var ${1:a} ${2:Animal}",
+      "res, err := http.Get(${3:\"https://raw.githubusercontent.com/LearnWebCode/json-example/master/animals-1.json\"})",
+      "if err != nil {",
+      "    return nil, err",
+      "}",
+      "defer res.Body.Close()",
+      "decoder := json.NewDecoder(res.Body)",
+      "decoder.Decode(&${1})"
+    ],
+    "description": "Generate json.NewDecoder"
+  },
+  "jsondecode": {
+    "prefix": "g-json-newdecoder-str",
+    "body": [
+      "$0${1:str} := `{\"Id\":10,\"Name\":\"Duotify\"}`",
+      "${2:reader} := strings.NewReader(${1})",
+      "${3:decoder} := json.NewDecoder(${2})",
+      "var ${4:u} ${5:User}",
+      "${3}.Decode(&${4})",
+      "fmt.Println(${4})"
+    ],
+    "description": "Generate json.NewDecoder"
+  },
+  "Generate gin CRUD sample": {
+    "prefix": "g-gin-crud",
+    "body": [
+      "$0package main",
+      "",
+      "import (",
+      "    \"net/http\"",
+      "    \"strconv\"",
+      "",
+      "    \"github.com/gin-gonic/gin\"",
+      ")",
+      "",
+      "// User is a struct",
+      "type User struct {",
+      "    ID   int",
+      "    Name string",
+      "}",
+      "",
+      "var users = []User{",
+      "    {ID: 1, Name: \"Duotify\"},",
+      "    {ID: 2, Name: \"Duotify\"},",
+      "}",
+      "",
+      "func main() {",
+      "",
+      "    router := gin.Default()",
+      "",
+      "    router.GET(\"/user\", func(c *gin.Context) {",
+      "        c.JSON(http.StatusOK, users)",
+      "    })",
+      "",
+      "    router.GET(\"/user/:id\", func(c *gin.Context) {",
+      "",
+      "        id, err := strconv.Atoi(c.Param(\"id\"))",
+      "        if err != nil {",
+      "            c.JSON(http.StatusBadRequest, gin.H{\"err\": err.Error()})",
+      "            return",
+      "        }",
+      "",
+      "        for i := 0; i < len(users); i++ {",
+      "            if users[i].ID == id {",
+      "                c.JSON(http.StatusOK, users[i])",
+      "                break",
+      "            }",
+      "        }",
+      "    })",
+      "",
+      "    router.POST(\"/user\", func(c *gin.Context) {",
+      "        var u User",
+      "        if err := c.ShouldBind(&u); err != nil {",
+      "            c.JSON(http.StatusBadRequest, gin.H{\"err\": err.Error()})",
+      "            return",
+      "        }",
+      "        users = append(users, u)",
+      "        c.Status(http.StatusOK)",
+      "    })",
+      "",
+      "    router.PUT(\"/user/:id\", func(c *gin.Context) {",
+      "        id, err := strconv.Atoi(c.Param(\"id\"))",
+      "        if err != nil {",
+      "            c.JSON(http.StatusBadRequest, gin.H{\"err\": err.Error()})",
+      "            return",
+      "        }",
+      "",
+      "        var u User",
+      "        if err := c.ShouldBind(&u); err != nil {",
+      "            c.JSON(http.StatusBadRequest, gin.H{\"err\": err.Error()})",
+      "            return",
+      "        }",
+      "",
+      "        for i := 0; i < len(users); i++ {",
+      "            if users[i].ID == id {",
+      "                users[i].Name = u.Name",
+      "                break",
+      "            }",
+      "        }",
+      "        c.Status(http.StatusNoContent)",
+      "    })",
+      "",
+      "    router.DELETE(\"/user/:id\", func(c *gin.Context) {",
+      "        id, err := strconv.Atoi(c.Param(\"id\"))",
+      "        if err != nil {",
+      "            c.JSON(http.StatusBadRequest, gin.H{\"err\": err.Error()})",
+      "            return",
+      "        }",
+      "",
+      "        for i, user := range users {",
+      "            if user.ID == id {",
+      "                users = append(users[0:i], users[i+1:]...)",
+      "                break",
+      "            }",
+      "        }",
+      "",
+      "        c.Status(http.StatusNoContent)",
+      "    })",
+      "",
+      "    router.Run(\":8080\")",
+      "}",
+      ""
+    ],
+    "description": "Generate gin CRUD sample"
+  },
+  "Generate GORM CRUD sample": {
+    "prefix": "g-gorm-crud",
+    "body": [
+      "$0package main",
+      "",
+      "import (",
+      "    \"fmt\"",
+      "    \"log\"",
+      "",
+      "    \"gorm.io/driver/postgres\"",
+      "    \"gorm.io/gorm\"",
+      "    \"gorm.io/gorm/schema\"",
+      ")",
+      "",
+      "// User is a struct",
+      "type User struct {",
+      "    ID   int",
+      "    Name string",
+      "}",
+      "",
+      "func main() {",
+      "",
+      "    // docker run --name go-postgres --rm -p 5432:5432 -e POSTGRES_PASSWORD=123456 -d postgres",
+      "    dsn := \"user=postgres password=123456 dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Taipei\"",
+      "    // https://gorm.io/docs/connecting_to_the_database.html",
+      "    db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{NamingStrategy: schema.NamingStrategy{",
+      "        SingularTable: false,",
+      "    }})",
+      "    if err != nil {",
+      "        log.Fatal(\"gorm.Open error \", err)",
+      "    }",
+      "",
+      "    db.AutoMigrate(&User{})",
+      "",
+      "    // Create",
+      "    u := User{",
+      "        Name: \"Duotify\",",
+      "    }",
+      "    db.Create(&u)",
+      "",
+      "    // Read",
+      "    var readUser User",
+      "    db.Last(&readUser, \"name = ?\", \"Duotify\")",
+      "    fmt.Print(readUser)",
+      "",
+      "    // Update",
+      "    readUser.Name = \"Duotify\"",
+      "    db.Save(&readUser)",
+      "",
+      "    // Delete",
+      "    db.Delete(User{}, \"id = ?\", 1)",
+      "",
+      "}",
+      ""
+    ],
+    "description": "Generate GORM CRUD sample"
+  },
+  "Generate ioutil.WriteFile": {
+    "prefix": "g-ioutil-writefile",
+    "body": [
+      "content := \"content\"",
+      "err := ioutil.WriteFile(\"sample.txt\", []byte(content), 0666)",
+      "if err != nil {",
+      " log.Print(err)",
+      "}"
+    ],
+    "description": "Generate ioutil.WriteFile"
+  },
+  "Generate ioutil.ReadFile": {
+    "prefix": "g-ioutil-readfile",
+    "body": [
+      "b, err := ioutil.ReadFile(\"sample.txt\")",
+      "if err != nil {",
+      " log.Print(err)",
+      "}",
+      "fmt.Println(string(b))"
+    ],
+    "description": "Generate ioutil.ReadFile"
+  },
+  "Generate gin binding tags": {
+    "prefix": "g-gin-binding-tags",
+    "body": [
+      "$0`binding:\"required,len=10,min=5,oneof= red green,required_with=Field1,required_without=Field2\"` // https://pkg.go.dev/github.com/go-playground/validator#hdr-Baked_In_Validators_and_Tags"
+    ],
+    "description": "Generate gin binding tags"
+  },
+  "Generate GORM mysql open": {
+    "prefix": "g-gorm-open-mysql",
+    "body": [
+      "// import \"gorm.io/driver/mysql\"",
+      "// refer: https://gorm.io/docs/connecting_to_the_database.html#MySQL",
+      "dsn := \"${1:user}:${2:pass}@tcp(${3:127.0.0.1:3306})/${4:dbname}?charset=utf8mb4&parseTime=True&loc=Local\"",
+      "db, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})",
+      "$0"
+    ],
+    "description": "Generate GORM mysql open"
+  },
+  "Generate GORM sqlserver open": {
+    "prefix": "g-gorm-open-sqlserver",
+    "body": [
+      "// import \"gorm.io/driver/sqlserver\"",
+      "// ref: https://gorm.io/docs/connecting_to_the_database.html#SQL-Server",
+      "dsn := \"server=${1:localhost};user id=${2:sa};password=${3:pwd};port=${4:1433};database=${5:dbname};\"",
+      "db, err := gorm.Open(sqlserver.Open(dsn), &gorm.Config{})",
+      "$0"
+    ],
+    "description": "Generate GORM sqlserver open"
+  },
+  "Generate GORM postgresql open": {
+    "prefix": "g-gorm-open-postgresql",
+    "body": [
+      "// import \"gorm.io/driver/postgres\"",
+      "// ref: https://gorm.io/docs/connecting_to_the_database.html#PostgreSQL",
+      "dsn := \"user=${1:postgres} password=${2:123456} dbname=${3:postgres} port=${4:5432} sslmode=disable TimeZone=Asia/Taipei\"",
+      "db, err := gorm.Open(postgres.Open(dsn), &gorm.Config{})",
+      "$0"
+    ],
+    "description": "Generate GORM postgresql open"
+  },
+  "Generate GORM sqlite open": {
+    "prefix": "g-gorm-open-sqlite",
+    "body": [
+      "// import \"gorm.io/driver/sqlite\"",
+      "// ref: https://gorm.io/docs/connecting_to_the_database.html#SQLite",
+      "db, err := gorm.Open(sqlite.Open(\"${1:sample.db}\"), &gorm.Config{})",
+      "$0"
+    ],
+    "description": "Generate GORM sqlite open"
+  }
 }

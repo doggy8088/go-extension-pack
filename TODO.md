@@ -55,7 +55,7 @@
 
 5. Keep watching [x/tools/gopls: generate method stubs for a given interface #37537](https://github.com/golang/go/issues/37537) progress.
 
-    https://vimeo.com/394345925
+    <https://vimeo.com/394345925>
 
     Compare to GoLand:
 

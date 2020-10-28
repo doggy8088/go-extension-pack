@@ -237,11 +237,29 @@ This extension will contains supplementary code snippets to [Go](https://marketp
 
 ### Go snippets
 
-* fmt
-  * `fv`: fmt.Printf() with variable content
 * statements
   * `forc`: for loop with custom conditions
   * `forb`: for loop with break (infinite loop)
+* fmt
+  * `fv`: fmt.Printf() with variable content
+* Go Samples
+  * `g-cli`: Generate Go CLI sample with [flag](https://golang.org/pkg/flag/) package
+  * `g-gin-crud`: Generate [gin](https://github.com/gin-gonic/gin) CRUD sample
+  * `g-gorm-crud`: Generate [GORM](https://gorm.io/) CRUD sample
+* net/json
+  * `g-json-marshal`: Generate `json.Marshal`
+  * `g-json-unmarshal`: Generate `json.Unmarshal`
+  * `g-json-newdecoder`: Generate `json.NewDecoder`
+* ioutil
+  * `g-ioutil-writefile`: Generate `ioutil.WriteFile`
+  * `g-ioutil-readfile`: Generate `ioutil.ReadFile`
+* gin
+  * `g-gin-binding-tags`: Generate [gin](https://github.com/gin-gonic/gin) binding tags
+* GORM
+  * `g-gorm-open-mysql`: Generate [GORM MySQL](https://gorm.io/docs/connecting_to_the_database.html#MySQL) open
+  * `g-gorm-open-sqlite`: Generate [GORM SQLite](https://gorm.io/docs/connecting_to_the_database.html#SQLite) open
+  * `g-gorm-open-sqlserver`: Generate [GORM SQL Server](https://gorm.io/docs/connecting_to_the_database.html#SQL-Server) open
+  * `g-gorm-open-postgresql`: Generate [GORM PostgreSQL](https://gorm.io/docs/connecting_to_the_database.html#PostgreSQL) open
 * TODO
   * Add "Comments" to each declaration snippets (`go vet`)
 

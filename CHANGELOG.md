@@ -2,6 +2,28 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.5.0 - 2020-10-29
+
+* Add more Go snippets
+  * Go Samples
+    * `g-cli`: Generate Go CLI sample with [flag](https://golang.org/pkg/flag/) package
+    * `g-gin-crud`: Generate [gin](https://github.com/gin-gonic/gin) CRUD sample
+    * `g-gorm-crud`: Generate [GORM](https://gorm.io/) CRUD sample
+  * net/json
+    * `g-json-marshal`: Generate `json.Marshal`
+    * `g-json-unmarshal`: Generate `json.Unmarshal`
+    * `g-json-newdecoder`: Generate `json.NewDecoder`
+  * ioutil
+    * `g-ioutil-writefile`: Generate `ioutil.WriteFile`
+    * `g-ioutil-readfile`: Generate `ioutil.ReadFile`
+  * gin
+    * `g-gin-binding-tags`: Generate [gin](https://github.com/gin-gonic/gin) binding tags
+  * GORM
+    * `g-gorm-open-mysql`: Generate [GORM MySQL](https://gorm.io/docs/connecting_to_the_database.html#MySQL) open
+    * `g-gorm-open-sqlite`: Generate [GORM SQLite](https://gorm.io/docs/connecting_to_the_database.html#SQLite) open
+    * `g-gorm-open-sqlserver`: Generate [GORM SQL Server](https://gorm.io/docs/connecting_to_the_database.html#SQL-Server) open
+    * `g-gorm-open-postgresql`: Generate [GORM PostgreSQL](https://gorm.io/docs/connecting_to_the_database.html#PostgreSQL) open
+
 ## 0.4.2 - 2020-07-30
 
 * Add more [gopls](https://github.com/golang/vscode-go/blob/master/docs/gopls.md) information and settings in the README.md
