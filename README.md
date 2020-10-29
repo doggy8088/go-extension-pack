@@ -229,11 +229,19 @@ This extension will contains supplementary code snippets to [Go](https://marketp
 
 ### Go snippets
 
-* statements
-  * `forc`: for loop with custom conditions
-  * `forb`: for loop with break (infinite loop)
 * fmt
-  * `fv`: fmt.Printf() with variable content
+  * `fv`: `fmt.Printf()` with variable content
+  * `fvv`: `fmt.Printf()` with variable type and content
+* statements
+  * `g-forc`: Snippet for a for loop with custom condition
+  * `g-forb`: Snippet for a for loop with a break (infinite loop)
+  * `g-forr`: Snippet for a for range loop with better hints
+  * `g-iferr`: Snippet for if err != nil with common usage scenario
+* builtin
+  * `g-make-chan-buffered`: make buffered channel
+  * `g-make-chan-unbuffered`: make unbuffered channel
+  * `g-make-map`: make map
+  * `g-make-slice`: make slice
 * Go Samples
   * `g-cli`: Generate Go CLI sample with [flag](https://golang.org/pkg/flag/) package
   * `g-gin-crud`: Generate [gin](https://github.com/gin-gonic/gin) CRUD sample

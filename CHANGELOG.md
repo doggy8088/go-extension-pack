@@ -2,6 +2,18 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.6.0 - 2020-10-29
+
+* Add `make` snippets
+  * `g-make-chan-buffered`: make buffered channel
+  * `g-make-chan-unbuffered`: make unbuffered channel
+  * `g-make-map`: make map
+  * `g-make-slice`: make slice
+* Add more statement snippets
+  * `fvv`: `fmt.Printf()` with variable type and content
+  * `g-forr`: Snippet for a for range loop with better hints
+  * `g-iferr`: Snippet for if err != nil with common usage scenario
+
 ## 0.5.1 - 2020-10-29
 
 * Update README.md for `gopls` description

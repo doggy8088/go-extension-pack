@@ -1,29 +1,54 @@
 {
-  "fmt.Printf with variable content": {
-    "prefix": "fv",
-    "body": [
-      "fmt.Printf(\"${1:var}: %#+v\\n\", ${1:var})"
-    ],
-    "description": "fmt.Printf() with variable content"
-  },
   "for loop with custom condition": {
-    "prefix": "forc",
+    "prefix": "g-forc",
     "body": [
       "for ${1:i <= 3} {",
       "    ${0}",
       "}"
     ],
-    "description": "for loop with custom condition"
+    "description": "Snippet for a for loop with custom condition"
   },
   "for loop with break": {
-    "prefix": "forb",
+    "prefix": "g-forb",
     "body": [
       "for {",
       "    ${0}",
       "    break",
       "}"
     ],
-    "description": "for loop with break"
+    "description": "Snippet for a for loop with a break (infinite loop)"
+  },
+	"for range": {
+		"prefix": "g-forr",
+		"body": [
+			"for ${1:_}, ${2:value} := range ${3:var} {",
+			"   $0",
+			"}"
+		],
+		"description": "Snippet for a for range loop"
+	},
+	"iferr": {
+		"prefix": "g-iferr",
+		"body": [
+			"if err != nil {",
+			"    ${1|return,return err,return nil\\, err,log.Fatalf(\"Error %s\"\\, err.Error())|}",
+			"}"
+		],
+		"description": "Snippet for if err != nil with common usage scenario"
+	},
+  "fmt.Printf with variable content": {
+    "prefix": "fv",
+    "body": [
+      "fmt.Printf(\"${1:var}: %+v\\n\", ${1:var})"
+    ],
+    "description": "fmt.Printf() with variable content"
+  },
+  "fmt.Printf with variable type and content": {
+    "prefix": "fvv",
+    "body": [
+      "fmt.Printf(\"${1:var}: %#+v\\n\", ${1:var})"
+    ],
+    "description": "fmt.Printf() with variable type and content"
   },
   "Generate Go CLI sample": {
     "prefix": "g-cli",
@@ -340,5 +365,33 @@
       "$0"
     ],
     "description": "Generate GORM sqlite open"
+  },
+  "make buffered channel": {
+    "prefix": "g-make-chan-buffered",
+    "body": [
+      "make(chan ${1|int,string,bool,byte,rune,type|}, ${2:size})"
+    ],
+    "description": "make buffered channel"
+  },
+  "make unbuffered channel": {
+    "prefix": "g-make-chan-unbuffered",
+    "body": [
+      "make(chan ${1|int,string,bool,byte,rune,type|})"
+    ],
+    "description": "make unbuffered channel"
+  },
+  "make map": {
+    "prefix": "g-make-map",
+    "body": [
+      "make(map[${1|int,string,bool,byte,rune,type|}]${2|int,string,bool,byte,rune,type|})"
+    ],
+    "description": "make map"
+  },
+  "make slice": {
+    "prefix": "g-make-slice",
+    "body": [
+      "make([]${1|int,string,bool,byte,rune,type|}, ${2:len})"
+    ],
+    "description": "make slice"
   }
 }
