@@ -18,24 +18,24 @@
     ],
     "description": "Snippet for a for loop with a break (infinite loop)"
   },
-	"for range": {
-		"prefix": "g-forr",
-		"body": [
-			"for ${1:_}, ${2:value} := range ${3:var} {",
-			"   $0",
-			"}"
-		],
-		"description": "Snippet for a for range loop"
-	},
-	"iferr": {
-		"prefix": "g-iferr",
-		"body": [
-			"if err != nil {",
-			"    ${1|return,return err,return nil\\, err,log.Fatalf(\"Error %s\"\\, err.Error())|}",
-			"}"
-		],
-		"description": "Snippet for if err != nil with common usage scenario"
-	},
+  "for range": {
+    "prefix": "g-forr",
+    "body": [
+      "for ${1:_}, ${2:value} := range ${3:var} {",
+      "   $0",
+      "}"
+    ],
+    "description": "Snippet for a for range loop"
+  },
+  "iferr": {
+    "prefix": "g-iferr",
+    "body": [
+      "if err != nil {",
+      "    ${1|return,return err,return nil\\, err,log.Fatalf(\"Error %s\"\\, err.Error())|}",
+      "}"
+    ],
+    "description": "Snippet for if err != nil with common usage scenario"
+  },
   "fmt.Printf with variable content": {
     "prefix": "fv",
     "body": [
@@ -393,5 +393,298 @@
       "make([]${1|int,string,bool,byte,rune,type|}, ${2:len})"
     ],
     "description": "make slice"
+  },
+  "log.SetOutput to a file": {
+    "prefix": "g-log-file",
+    "body": [
+      "${1:file}, err := os.OpenFile(\"${2:$WORKSPACE_NAME.log}\", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0660)",
+      "if err != nil {",
+      "    log.Fatal(err)",
+      "}",
+      "log.SetOutput(${1})"
+    ],
+    "description": "log.SetOutput to a file"
+  },
+  "log.SetOutput to console & file": {
+    "prefix": "g-log-file-console",
+    "body": [
+      "${1:file}, err := os.OpenFile(\"${2:$WORKSPACE_NAME.log}\", os.O_CREATE|os.O_APPEND|os.O_WRONLY, 0660)",
+      "if err != nil {",
+      "    log.Fatal(err)",
+      "}",
+      "${3:writer} := io.MultiWriter(${1}, os.Stdout)",
+      "log.SetOutput(${3})",
+      "$0"
+    ],
+    "description": "log.SetOutput to console & file"
+  },
+  "log.New()": {
+    "prefix": "g-log-new",
+    "body": [
+      "// ${1} is a Logger with LogLevel ${3}",
+      "var ${1|Info,Warn,Error|} = log.New(os.${2|Stderr,Stdout|}, \"${3|INF,WRN,ERR|}: \", log.LstdFlags|log.Llongfile|log.Lmsgprefix)"
+    ],
+    "description": "log.New()"
+  },
+  "Generate swag main snippet": {
+    "prefix": "g-swag-main",
+    "body": [
+      "// $0ref: https://swaggo.github.io/swaggo.io/declarative_comments_format/general_api_info.html",
+      "// @title Swagger Example API",
+      "// @version 1.0",
+      "// @description This is a sample server celler server.",
+      "// @termsOfService http://swagger.io/terms/",
+      "",
+      "// @contact.name API Support",
+      "// @contact.url http://www.swagger.io/support",
+      "// @contact.email support@swagger.io",
+      "",
+      "// @license.name Apache 2.0",
+      "// @license.url http://www.apache.org/licenses/LICENSE-2.0.html",
+      "",
+      "// @host localhost:8080",
+      "// @BasePath /api/v1",
+      "",
+      "// @securityDefinitions.basic BasicAuth",
+      "",
+      "// @securityDefinitions.apikey ApiKeyAuth",
+      "// @in header",
+      "// @name Authorization",
+      "",
+      "// @securitydefinitions.oauth2.application OAuth2Application",
+      "// @tokenUrl https://example.com/oauth/token",
+      "// @scope.write Grants write access",
+      "// @scope.admin Grants read and write access to administrative information"
+    ],
+    "description": "Generate swag main snippet"
+  },
+  "Generate gin func snippet": {
+    "prefix": "g-gin-func",
+    "body": [
+      "// ref: https://swaggo.github.io/swaggo.io/declarative_comments_format/api_operation.html",
+      "// @Summary ${1:Show an account}",
+      "// @Description ${2:get string by ID}",
+      "// @Tags ${3:accounts}",
+      "// @Accept  ${4|json,xml,plain,html|}",
+      "// @Produce  ${5|json,xml,plain,html|}",
+      "// @Param ${6:id} path ${7|string,integer|} ${8|true,false|} \"${9:Account ID}\"",
+      "// @Success 200 {${10|object,string,integer,number,boolean,array|}} ${11:model.Account}",
+      "// @Failure 400 {${12|object,string,integer,number,boolean,array|}} ${13:model.HTTPError}",
+      "// @Router ${14:/accounts/{id\\}} [${15|get,post,put,delete,patch,head,options|}]",
+      "func ${16:Index}(c *gin.Context) {",
+      "",
+      "}"
+    ],
+    "description": "Generate gin func snippet"
+  },
+  "Generate gin action snippet": {
+    "prefix": "g-gin-action",
+    "body": [
+      "// ref: https://swaggo.github.io/swaggo.io/declarative_comments_format/api_operation.html",
+      "// @Summary ${1:Show an account}",
+      "// @Description ${2:get string by ID}",
+      "// @Tags ${3:accounts}",
+      "// @Accept  ${4|json,xml,plain,html|}",
+      "// @Produce  ${5|json,xml,plain,html|}",
+      "// @Param ${6:id} path ${7|string,integer|} ${8|true,false|} \"${9:Account ID}\"",
+      "// @Success 200 {${10|object,string,integer,number,boolean,array|}} ${11:model.Account}",
+      "// @Failure 400 {${12|object,string,integer,number,boolean,array|}} ${13:model.HTTPError}",
+      "// @Router ${14:/accounts/{id\\}} [${15|get,post,put,delete,patch,head,options|}]",
+      "func (ctrl ${16:*ControllerName}) ${17:Index}(c *gin.Context) {",
+      "",
+      "}"
+    ],
+    "description": "Generate gin action snippet"
+  },
+  "Generate Random Number snippet": {
+    "prefix": "g-rand",
+    "body": [
+      "source := rand.NewSource(time.Now().Unix())",
+      "r := rand.New(source)",
+      "fmt.Print(r.Intn(${1:100}))"
+    ],
+    "description": "Generate Random Number snippet"
+  },
+  "Generate http.Get snippet": {
+    "prefix": "g-http-get",
+    "body": [
+      "resp, err := http.Get(\"${1:http://exmample.com/snippet.json}\")",
+      "if err != nil {",
+      "    log.Fatal(err)",
+      "}",
+      "defer resp.Body.Close()",
+      "",
+      "var t []${2:Role}",
+      "decoder := json.NewDecoder(resp.Body)",
+      "decoder.Decode(&t)",
+      "$0"
+    ],
+    "description": "Generate http.Get snippet"
+  },
+  "Generate http.Post snippet": {
+    "prefix": "g-http-post",
+    "body": [
+      "data := ${1:Type\\{Name:\"Will\"\\}}",
+      "body, err := json.Marshal(data)",
+      "if err != nil {",
+      "    log.Fatal(err)",
+      "}",
+      "resp, err := http.Post(\"${2:http://post}\", \"application/json\", bytes.NewReader(body))",
+      "if err != nil {",
+      "    log.Fatal(err)",
+      "}",
+      "defer resp.Body.Close()",
+      "m := make(map[string]interface{})",
+      "decoder := json.NewDecoder(resp.Body)",
+      "decoder.Decode(&m)",
+      "insertedId := m[\"id\"]",
+      "fmt.Println(insertedId, m)"
+    ],
+    "description": "Generate http.Post snippet"
+  },
+  "Generate http.Put snippet": {
+    "prefix": "g-http-put",
+    "body": [
+      "data := ${1:Type\\{Name:\"Will\"\\}}",
+      "body, err := json.Marshal(data)",
+      "if err != nil {",
+      "    log.Fatal(err)",
+      "}",
+      "req, err := http.NewRequest(http.MethodPut, \"${2:http://put/8}\", bytes.NewReader(body))",
+      "if err != nil {",
+      "    log.Fatal(err)",
+      "}",
+      "req.Header.Set(\"Content-Type\", \"application/json\")",
+      "var client http.Client",
+      "resp, err := client.Do(req)",
+      "if err != nil {",
+      "    log.Fatal(err)",
+      "}",
+      "defer resp.Body.Close()",
+      ""
+    ],
+    "description": "Generate http.Put snippet"
+  },
+  "Generate http.Delete snippet": {
+    "prefix": "g-http-delete",
+    "body": [
+      "req, err := http.NewRequest(http.MethodDelete, \"${1:http://delete/8}\", nil)",
+      "if err != nil {",
+      "    log.Fatal(err)",
+      "}",
+      "var client http.Client",
+      "resp, err := client.Do(req)",
+      "if err != nil {",
+      "    log.Fatal(err)",
+      "}",
+      "defer resp.Body.Close()"
+    ],
+    "description": "Generate http.Delete snippet"
+  },
+  "Generate gin controller snippet": {
+    "prefix": "g-gin-controller",
+    "body": [
+      "$0",
+      "type User struct {",
+      "// Add Fields",
+      "}",
+      "",
+      "// ref: https://github.com/swaggo/swag/blob/master/example/celler/controller/accounts.go",
+      "type ${1:User}Ctrl struct {}",
+      "",
+      "// @Summary 取得所有資訊",
+      "// @Description 取得所有資訊",
+      "// @Accept  json",
+      "// @Produce  json",
+      "// @Success 200 {object} []${2:model}.${1:User}",
+      "// @Router /${1:User} [get]",
+      "func (ctrl *UserCtrl) Get(c *gin.Context) {",
+      "",
+      "   c.JSON(http.StatusOK, gin.H{})",
+      "}",
+      "",
+      "// @Summary 取得單一資訊",
+      "// @Description 取得單一資訊",
+      "// @Accept  json",
+      "// @Produce  json",
+      "// @Param   id     path    int     true        \"ID\"",
+      "// @Success 200 {object} ${2:model}.${1:User}",
+      "// @Failure 400 {string} string \"400 StatusBadRequest\"",
+      "// @Failure 404 {string} string \"404 not found\"",
+      "// @Router /${1:User}/{id} [get]",
+      "func (ctrl *UserCtrl) GetOne(c *gin.Context) {",
+      "    id, err := strconv.Atoi(c.Param(\"id\"))",
+      "    if err != nil {",
+      "        c.JSON(http.StatusBadRequest, err.Error())",
+      "        return",
+      "    }",
+      "",
+      "    c.JSON(http.StatusOK, gin.H{})",
+      "}",
+      "",
+      "// @Summary 新增單資訊",
+      "// @Description 新增資訊",
+      "// @Accept  json",
+      "// @Produce  json",
+      "// @Param role body ${2:model}.${1:User}true \"資料\"",
+      "// @Success 200 {object} ${2:model}.${1:User}",
+      "// @Router /${1:User} [post]",
+      "func (ctrl *UserCtrl) Post(c *gin.Context) {",
+      "    var t User",
+      "    if err := c.ShouldBindJSON(&t); err != nil {",
+      "        c.JSON(http.StatusBadRequest, err.Error())",
+      "        return",
+      "    }",
+      "",
+      "    c.JSON(http.StatusOK, gin.H{})",
+      "}",
+      "",
+      "// @Summary 修改資訊",
+      "// @Description 修改資訊",
+      "// @Accept  json",
+      "// @Produce  json",
+      "// @Param role body ${2:model}.${1:User} true \"資料\"",
+      "// @Param   id     path    int     true        \"ID\"",
+      "// @Success 200 {object} ${2:model}.${1:User}",
+      "// @Failure 400 {string} string \"400 StatusBadRequest\"",
+      "// @Failure 404 {string} string \"404 not found\"",
+      "// @Router /${1:User}/{id} [put]",
+      "func (ctrl *UserCtrl) Put(c *gin.Context) {",
+      "    id, err := strconv.Atoi(c.Param(\"id\"))",
+      "    if err != nil {",
+      "        c.JSON(http.StatusBadRequest, err.Error())",
+      "        return",
+      "    }",
+      "",
+      "    var t ${1:User}",
+      "    if err := c.ShouldBindJSON(&t); err != nil {",
+      "        c.JSON(http.StatusBadRequest, err.Error())",
+      "        return",
+      "    }",
+      "",
+      "    c.JSON(http.StatusOK, gin.H{})",
+      "}",
+      "",
+      "// @Summary 刪除資訊",
+      "// @Description 刪除資訊",
+      "// @Accept  json",
+      "// @Produce  json",
+      "// @Param   id     path    int     true        \"ID\"",
+      "// @Success 204",
+      "// @Failure 400 {string} string \"400 StatusBadRequest\"",
+      "// @Failure 404 {string} string \"404 not found\"",
+      "// @Router /${1:User}/{id} [delete]",
+      "func (ctrl *UserCtrl) Del(c *gin.Context) {",
+      " id, err := strconv.Atoi(c.Param(\"id\"))",
+      " if err != nil {",
+      "    c.JSON(http.StatusBadRequest, err.Error())",
+      "    return",
+      "}",
+      "",
+      " c.JSON(http.StatusNoContent, gin.H{})",
+      "}",
+      ""
+    ],
+    "description": "Generate gin controller snippet"
   }
 }

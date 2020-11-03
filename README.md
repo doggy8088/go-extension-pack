@@ -229,23 +229,34 @@ This extension will contains supplementary code snippets to [Go](https://marketp
 
 ### Go snippets
 
-* fmt
-  * `fv`: `fmt.Printf()` with variable content
-  * `fvv`: `fmt.Printf()` with variable type and content
+* Go Samples
+  * `g-cli`: Generate Go CLI sample with [flag](https://golang.org/pkg/flag/) package
+  * `g-gin-crud`: Generate [gin](https://github.com/gin-gonic/gin) CRUD sample
+  * `g-gorm-crud`: Generate [GORM](https://gorm.io/) CRUD sample
 * statements
   * `g-forc`: Snippet for a for loop with custom condition
   * `g-forb`: Snippet for a for loop with a break (infinite loop)
   * `g-forr`: Snippet for a for range loop with better hints
   * `g-iferr`: Snippet for if err != nil with common usage scenario
+* fmt
+  * `fv`: `fmt.Printf()` with variable content
+  * `fvv`: `fmt.Printf()` with variable type and content
 * builtin
   * `g-make-chan-buffered`: make buffered channel
   * `g-make-chan-unbuffered`: make unbuffered channel
   * `g-make-map`: make map
   * `g-make-slice`: make slice
-* Go Samples
-  * `g-cli`: Generate Go CLI sample with [flag](https://golang.org/pkg/flag/) package
-  * `g-gin-crud`: Generate [gin](https://github.com/gin-gonic/gin) CRUD sample
-  * `g-gorm-crud`: Generate [GORM](https://gorm.io/) CRUD sample
+* log
+  * `g-log-new`: `log.New()` with various options
+  * `g-log-file`: `log.SetOutput` to a file
+  * `g-log-file-console`: `log.SetOutput` to console & file
+* math/rand
+  * `g-rand`: Generate Random Number snippet
+* net/http
+  * `g-http-get`: Generate `http.Get` snippet
+  * `g-http-post`: Generate `http.Post` snippet
+  * `g-http-put`: Generate `http.Put` snippet
+  * `g-http-delete`: Generate `http.Delete` snippet
 * net/json
   * `g-json-marshal`: Generate `json.Marshal`
   * `g-json-unmarshal`: Generate `json.Unmarshal`
@@ -254,7 +265,12 @@ This extension will contains supplementary code snippets to [Go](https://marketp
   * `g-ioutil-writefile`: Generate `ioutil.WriteFile`
   * `g-ioutil-readfile`: Generate `ioutil.ReadFile`
 * gin
+  * `g-gin-func`: Generate gin func snippet
+  * `g-gin-action`: Generate gin action snippet
+  * `g-gin-controller`: Generate gin controller snippet
   * `g-gin-binding-tags`: Generate [gin](https://github.com/gin-gonic/gin) binding tags
+* swagger
+  * `g-swag-main`: Generate swag main snippet
 * GORM
   * `g-gorm-open-mysql`: Generate [GORM MySQL](https://gorm.io/docs/connecting_to_the_database.html#MySQL) open
   * `g-gorm-open-sqlite`: Generate [GORM SQLite](https://gorm.io/docs/connecting_to_the_database.html#SQLite) open

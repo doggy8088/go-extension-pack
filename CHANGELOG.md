@@ -2,6 +2,27 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.7.0 - 2020-11-04
+
+* Add more Go snippets
+  * log
+    * `g-log-new`: `log.New()` with various options
+    * `g-log-file`: `log.SetOutput` to a file
+    * `g-log-file-console`: `log.SetOutput` to console & file
+  * swagger
+    * `g-swag-main`: Generate swag main snippet
+  * gin
+    * `g-gin-func`: Generate gin func snippet
+    * `g-gin-action`: Generate gin action snippet
+    * `g-gin-controller`: Generate gin controller snippet
+  * math/rand
+    * `g-rand`: Generate Random Number snippet
+  * net/http
+    * `g-http-get`: Generate `http.Get` snippet
+    * `g-http-post`: Generate `http.Post` snippet
+    * `g-http-put`: Generate `http.Put` snippet
+    * `g-http-delete`: Generate `http.Delete` snippet
+
 ## 0.6.0 - 2020-10-29
 
 * Add `make` snippets
