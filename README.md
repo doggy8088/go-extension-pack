@@ -238,6 +238,8 @@ This extension will contains supplementary code snippets to [Go](https://marketp
   * `g-forb`: Snippet for a for loop with a break (infinite loop)
   * `g-forr`: Snippet for a for range loop with better hints
   * `g-iferr`: Snippet for if err != nil with common usage scenario
+  * `g-enum` or `g-const-iota`: Generate **enum**-like const
+  * `g-trycatch` or `g-recover`: Generate try/catch-like statements
 * fmt
   * `fv`: `fmt.Printf()` with variable content
   * `fvv`: `fmt.Printf()` with variable type and content

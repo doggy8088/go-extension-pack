@@ -87,51 +87,32 @@
   "Generate json.Marshal": {
     "prefix": "g-json-marshal",
     "body": [
-      "$0${1:u} := User{Id: 10, Name: \"Duotify\"}",
-      "${2:b}, err := json.Marshal(${1})",
+      "${1:u}, err := json.Marshal(${2:v interface{}})",
       "if err != nil {",
       "    log.Print(err)",
       "}",
-      "fmt.Println(string(${2}))"
+      "fmt.Println(string(${1}))"
     ],
     "description": "Generate json.Marshal"
   },
   "Generate json.Unmarshal": {
     "prefix": "g-json-unmarshal",
     "body": [
-      "$0var ${1:b} = []byte(`{\"Id\":10,\"Name\":\"Duotify\"}`)",
-      "var ${2:u} ${3:User}",
-      "err := json.Unmarshal(${1}, &${2})",
+      "var ${1:u} ${2:User}",
+      "err := json.Unmarshal(${3:data []byte}, &${1:v interface{{}})",
       "if err != nil {",
       "    log.Print(err)",
       "}",
-      "fmt.Println(${2})"
+      "fmt.Printf(\"${1}: %+v\\n\", ${1})"
     ],
     "description": "Generate json.Unmarshal"
   },
   "Generate json.NewDecoder": {
     "prefix": "g-json-newdecoder",
     "body": [
-      "var ${1:a} ${2:Animal}",
-      "res, err := http.Get(${3:\"https://raw.githubusercontent.com/LearnWebCode/json-example/master/animals-1.json\"})",
-      "if err != nil {",
-      "    return nil, err",
-      "}",
-      "defer res.Body.Close()",
-      "decoder := json.NewDecoder(res.Body)",
+      "var ${1:u} ${2:User}",
+      "decoder := json.NewDecoder(${3:res.Body})",
       "decoder.Decode(&${1})"
-    ],
-    "description": "Generate json.NewDecoder"
-  },
-  "jsondecode": {
-    "prefix": "g-json-newdecoder-str",
-    "body": [
-      "$0${1:str} := `{\"Id\":10,\"Name\":\"Duotify\"}`",
-      "${2:reader} := strings.NewReader(${1})",
-      "${3:decoder} := json.NewDecoder(${2})",
-      "var ${4:u} ${5:User}",
-      "${3}.Decode(&${4})",
-      "fmt.Println(${4})"
     ],
     "description": "Generate json.NewDecoder"
   },
@@ -508,15 +489,15 @@
   "Generate http.Get snippet": {
     "prefix": "g-http-get",
     "body": [
-      "resp, err := http.Get(\"${1:http://exmample.com/snippet.json}\")",
+      "resp, err := http.Get(\"${1:http://exmample.com/api/user}\")",
       "if err != nil {",
       "    log.Fatal(err)",
       "}",
       "defer resp.Body.Close()",
       "",
-      "var t []${2:Role}",
+      "var ${2:u} []${3:User}",
       "decoder := json.NewDecoder(resp.Body)",
-      "decoder.Decode(&t)",
+      "decoder.Decode(&${2})",
       "$0"
     ],
     "description": "Generate http.Get snippet"
@@ -524,60 +505,71 @@
   "Generate http.Post snippet": {
     "prefix": "g-http-post",
     "body": [
-      "data := ${1:Type\\{Name:\"Will\"\\}}",
-      "body, err := json.Marshal(data)",
+      "${2:json}, err := json.Marshal(${1:data})",
       "if err != nil {",
       "    log.Fatal(err)",
       "}",
-      "resp, err := http.Post(\"${2:http://post}\", \"application/json\", bytes.NewReader(body))",
+      "",
+      "resp, err := http.Post(\"${3:http://exmample.com/api/user}\", \"application/json\", bytes.NewReader(${2}))",
       "if err != nil {",
       "    log.Fatal(err)",
       "}",
       "defer resp.Body.Close()",
-      "m := make(map[string]interface{})",
+      "",
+      "var ${4:u} []${5:User}",
       "decoder := json.NewDecoder(resp.Body)",
-      "decoder.Decode(&m)",
-      "insertedId := m[\"id\"]",
-      "fmt.Println(insertedId, m)"
+      "decoder.Decode(&${4})",
+      "$0"
     ],
     "description": "Generate http.Post snippet"
   },
   "Generate http.Put snippet": {
     "prefix": "g-http-put",
     "body": [
-      "data := ${1:Type\\{Name:\"Will\"\\}}",
-      "body, err := json.Marshal(data)",
+      "${2:json}, err := json.Marshal(${1:data})",
       "if err != nil {",
       "    log.Fatal(err)",
       "}",
-      "req, err := http.NewRequest(http.MethodPut, \"${2:http://put/8}\", bytes.NewReader(body))",
+      "",
+      "req, err := http.NewRequest(http.MethodPut, \"${3:http://exmample.com/api/user/1}\", bytes.NewReader(${2}))",
       "if err != nil {",
       "    log.Fatal(err)",
       "}",
       "req.Header.Set(\"Content-Type\", \"application/json\")",
+      "",
       "var client http.Client",
       "resp, err := client.Do(req)",
       "if err != nil {",
       "    log.Fatal(err)",
       "}",
       "defer resp.Body.Close()",
-      ""
+      "",
+      "var ${4:u} []${5:User}",
+      "decoder := json.NewDecoder(resp.Body)",
+      "decoder.Decode(&${4})",
+      "$0"
     ],
     "description": "Generate http.Put snippet"
   },
   "Generate http.Delete snippet": {
     "prefix": "g-http-delete",
     "body": [
-      "req, err := http.NewRequest(http.MethodDelete, \"${1:http://delete/8}\", nil)",
+      "req, err := http.NewRequest(http.MethodDelete, \"${1:http://exmample.com/api/user/1}\", nil)",
       "if err != nil {",
       "    log.Fatal(err)",
       "}",
+      "",
       "var client http.Client",
       "resp, err := client.Do(req)",
       "if err != nil {",
       "    log.Fatal(err)",
       "}",
-      "defer resp.Body.Close()"
+      "defer resp.Body.Close()",
+      "",
+      "var ${2:u} []${3:User}",
+      "decoder := json.NewDecoder(resp.Body)",
+      "decoder.Decode(&${2})",
+      "$0"
     ],
     "description": "Generate http.Delete snippet"
   },
@@ -592,8 +584,8 @@
       "// ref: https://github.com/swaggo/swag/blob/master/example/celler/controller/accounts.go",
       "type ${1:User}Ctrl struct {}",
       "",
-      "// @Summary 取得所有資訊",
-      "// @Description 取得所有資訊",
+      "// @Summary Get all items",
+      "// @Description Get all items",
       "// @Accept  json",
       "// @Produce  json",
       "// @Success 200 {object} []${2:model}.${1:User}",
@@ -603,8 +595,8 @@
       "   c.JSON(http.StatusOK, gin.H{})",
       "}",
       "",
-      "// @Summary 取得單一資訊",
-      "// @Description 取得單一資訊",
+      "// @Summary Get one item",
+      "// @Description Get one item",
       "// @Accept  json",
       "// @Produce  json",
       "// @Param   id     path    int     true        \"ID\"",
@@ -622,11 +614,11 @@
       "    c.JSON(http.StatusOK, gin.H{})",
       "}",
       "",
-      "// @Summary 新增單資訊",
-      "// @Description 新增資訊",
+      "// @Summary Add item",
+      "// @Description Add item",
       "// @Accept  json",
       "// @Produce  json",
-      "// @Param role body ${2:model}.${1:User}true \"資料\"",
+      "// @Param role body ${2:model}.${1:User}true \"data\"",
       "// @Success 200 {object} ${2:model}.${1:User}",
       "// @Router /${1:User} [post]",
       "func (ctrl *UserCtrl) Post(c *gin.Context) {",
@@ -639,11 +631,11 @@
       "    c.JSON(http.StatusOK, gin.H{})",
       "}",
       "",
-      "// @Summary 修改資訊",
-      "// @Description 修改資訊",
+      "// @Summary Update item",
+      "// @Description Update item",
       "// @Accept  json",
       "// @Produce  json",
-      "// @Param role body ${2:model}.${1:User} true \"資料\"",
+      "// @Param role body ${2:model}.${1:User} true \"data\"",
       "// @Param   id     path    int     true        \"ID\"",
       "// @Success 200 {object} ${2:model}.${1:User}",
       "// @Failure 400 {string} string \"400 StatusBadRequest\"",
@@ -665,8 +657,8 @@
       "    c.JSON(http.StatusOK, gin.H{})",
       "}",
       "",
-      "// @Summary 刪除資訊",
-      "// @Description 刪除資訊",
+      "// @Summary Delete item",
+      "// @Description Delete item",
       "// @Accept  json",
       "// @Produce  json",
       "// @Param   id     path    int     true        \"ID\"",
@@ -674,7 +666,7 @@
       "// @Failure 400 {string} string \"400 StatusBadRequest\"",
       "// @Failure 404 {string} string \"404 not found\"",
       "// @Router /${1:User}/{id} [delete]",
-      "func (ctrl *UserCtrl) Del(c *gin.Context) {",
+      "func (ctrl *UserCtrl) Delete(c *gin.Context) {",
       " id, err := strconv.Atoi(c.Param(\"id\"))",
       " if err != nil {",
       "    c.JSON(http.StatusBadRequest, err.Error())",
@@ -686,5 +678,40 @@
       ""
     ],
     "description": "Generate gin controller snippet"
+  },
+  "Generate enum-like const": {
+    "prefix": [
+      "g-enum",
+      "g-const-iota"
+    ],
+    "body": [
+      "type ${1:Weekday} int",
+      "",
+      "const (",
+      "    ${2:Sunday} ${1} = iota",
+      "    ${0}${3:Monday}",
+      "    ${4:Tuesday}",
+      "    ${5:Wednesday}",
+      "    ${6:Thursday}",
+      "    ${7:Friday}",
+      "    ${8:Saturday}",
+      ")"
+    ],
+    "description": "Generate enum-like const"
+  },
+  "Generate try/catch-like statements": {
+    "prefix": [
+      "g-trycatch",
+      "g-recover"
+    ],
+    "body": [
+      "defer func() {",
+      "    if r := recover(); r != nil {",
+      "        ${1:log.Println(r)}",
+      "    }",
+      "}()",
+      "$0"
+    ],
+    "description": "Generate try/catch-like statements"
   }
 }
