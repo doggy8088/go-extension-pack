@@ -283,7 +283,6 @@ This extension will contains supplementary code snippets to [Go](https://marketp
 
 ### Dockerfile snippets
 
-* TODO
-  * `docker-go`: Multi-stage Dockerfile for Go
+* `g-dockerfile`: Multi-stage `Dockerfile` for Go
 
 **Enjoy!**
