@@ -87,7 +87,7 @@
   "Generate json.Marshal": {
     "prefix": "g-json-marshal",
     "body": [
-      "${1:u}, err := json.Marshal(${2:v interface{}})",
+      "${1:u}, err := json.Marshal(${2:v interface{\\}})",
       "if err != nil {",
       "    log.Print(err)",
       "}",
@@ -99,7 +99,7 @@
     "prefix": "g-json-unmarshal",
     "body": [
       "var ${1:u} ${2:User}",
-      "err := json.Unmarshal(${3:data []byte}, &${1:v interface{{}})",
+      "err := json.Unmarshal(${3:data []byte}, &${1:v interface{\\}})",
       "if err != nil {",
       "    log.Print(err)",
       "}",

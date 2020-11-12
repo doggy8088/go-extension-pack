@@ -2,6 +2,10 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.9.1 - 2020-11-12
+
+* Bug fixed: `g-json-unmarshal` and `g-json-marshal` snippet
+
 ## 0.9.0 - 2020-11-10
 
 * Add `g-dockerfile` snippet: Multi-stage `Dockerfile` for Go
