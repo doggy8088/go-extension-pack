@@ -278,6 +278,10 @@ This extension will contains supplementary code snippets to [Go](https://marketp
   * `g-gorm-open-sqlite`: Generate [GORM SQLite](https://gorm.io/docs/connecting_to_the_database.html#SQLite) open
   * `g-gorm-open-sqlserver`: Generate [GORM SQL Server](https://gorm.io/docs/connecting_to_the_database.html#SQL-Server) open
   * `g-gorm-open-postgresql`: Generate [GORM PostgreSQL](https://gorm.io/docs/connecting_to_the_database.html#PostgreSQL) open
+* Testing
+  * `g-test`: Generate `Test_*` func template
+  * `g-benchmark`: Generate `Benchmark*` func template
+
 * TODO
   * Add "Comments" to each declaration snippets (`go vet`)
 

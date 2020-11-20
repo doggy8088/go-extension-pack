@@ -2,6 +2,11 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.10.0 - 2020-11-21
+
+* Add `g-benchmark` snippet
+* Add `g-test` snippet
+
 ## 0.9.1 - 2020-11-12
 
 * Bug fixed: `g-json-unmarshal` and `g-json-marshal` snippet

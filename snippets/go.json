@@ -713,5 +713,36 @@
       "$0"
     ],
     "description": "Generate try/catch-like statements"
+  },
+  "Generate Benchmark func": {
+    "prefix": "g-benchmark",
+    "body": [
+      "func Benchmark${1:Name}(b *testing.B) {",
+      "    ${2:// TODO: Initialize}",
+      "    for i := 0; i < b.N; i++ {",
+      "        ${3:// TODO: Your Code Here}$0",
+      "    }",
+      "}"
+    ],
+    "description": "Generate Benchmark func"
+  },
+  "Generate Test func": {
+    "prefix": "g-test",
+    "body": [
+      "func Test_${1:Name}(t *testing.T) {",
+      "    tests := []struct {",
+      "        name string",
+      "    }{",
+      "        ${2:// TODO: Add test cases.}",
+      "    }",
+      "    for _, tt := range tests {",
+      "        t.Run(tt.name, func(t *testing.T) {",
+      "            ${3:${1}()}$0",
+      "        })",
+      "    }",
+      "}",
+      ""
+    ],
+    "description": "Generate Test func"
   }
 }
