@@ -87,13 +87,24 @@
   "Generate json.Marshal": {
     "prefix": "g-json-marshal",
     "body": [
-      "${1:u}, err := json.Marshal(${2:v interface{\\}})",
+      "${1:s}, err := json.Marshal(${2:v interface{\\}})",
       "if err != nil {",
       "    log.Print(err)",
       "}",
       "fmt.Println(string(${1}))"
     ],
     "description": "Generate json.Marshal"
+  },
+  "Generate json.MarshalIndent": {
+    "prefix": "g-json-marshalindent",
+    "body": [
+      "${1:s}, err := json.MarshalIndent(${2:v interface{\\}}, \"\", \"  \")",
+      "if err != nil {",
+      "    log.Print(err)",
+      "}",
+      "fmt.Println(string(${1}))"
+    ],
+    "description": "Generate json.MarshalIndent"
   },
   "Generate json.Unmarshal": {
     "prefix": "g-json-unmarshal",
@@ -300,7 +311,7 @@
   "Generate gin binding tags": {
     "prefix": "g-gin-binding-tags",
     "body": [
-      "$0`binding:\"required,len=10,min=5,oneof= red green,required_with=Field1,required_without=Field2\"` // https://pkg.go.dev/github.com/go-playground/validator#hdr-Baked_In_Validators_and_Tags"
+      "$0`binding:\"required,len=10,min=5,oneof=red green,required_with=Field1,required_without=Field2\"` // https://pkg.go.dev/github.com/go-playground/validator#hdr-Baked_In_Validators_and_Tags"
     ],
     "description": "Generate gin binding tags"
   },

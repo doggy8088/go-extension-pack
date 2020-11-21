@@ -75,10 +75,6 @@ This extension pack include some of the popular (and some of my favorite) Go ext
         * `tlf`: t.Logf()
         * `tlv`: t.Logf() with variable content
 
-* [Go Doc](https://marketplace.visualstudio.com/items?itemName=msyrus.go-doc)
-  * Show documentation of go symbols and packages.
-  * Usage: Just move your cursor to any symbol such as `import`'s `"fmt"`, `fmt.Println(i)`'s `Println`, `json.Marshal(true)`'s `Marshal`. Then run `F1` > `Go Doc: Get Definition` command in VSCode. You will see the documentation of that symbol in the OUTPUT pane below.
-
 * [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
   * Usage: Just hit the built-in hotkey to **Run** or **Stop** the code.
     * Run code: `Ctrl+Alt+N`

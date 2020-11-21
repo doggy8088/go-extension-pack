@@ -2,6 +2,12 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.11.0 - 2020-11-22
+
+* Remove [Go Doc](https://marketplace.visualstudio.com/items?itemName=msyrus.go-doc) extension
+  * The Go Language Server has already did a good job. So there is no need to get doc shown in OUTPUT pane.
+* Add `g-json-marshalindent` snippet
+
 ## 0.10.0 - 2020-11-21
 
 * Add `g-benchmark` snippet
