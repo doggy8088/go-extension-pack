@@ -2,6 +2,10 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.12.0 - 2020-11-29
+
+* Add [Go Test Explorer](https://marketplace.visualstudio.com/items?itemName=premparihar.gotestexplorer) extension
+
 ## 0.11.0 - 2020-11-22
 
 * Remove [Go Doc](https://marketplace.visualstudio.com/items?itemName=msyrus.go-doc) extension

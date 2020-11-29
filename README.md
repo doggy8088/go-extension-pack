@@ -75,6 +75,9 @@ This extension pack include some of the popular (and some of my favorite) Go ext
         * `tlf`: t.Logf()
         * `tlv`: t.Logf() with variable content
 
+* [Go Test Explorer](https://marketplace.visualstudio.com/items?itemName=premparihar.gotestexplorer)
+  * This extension can visualize your tests and results.
+
 * [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner)
   * Usage: Just hit the built-in hotkey to **Run** or **Stop** the code.
     * Run code: `Ctrl+Alt+N`
