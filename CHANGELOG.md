@@ -2,6 +2,10 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.12.1 - 2020-12-01
+
+* Update `README.md`
+
 ## 0.12.0 - 2020-11-29
 
 * Add [Go Test Explorer](https://marketplace.visualstudio.com/items?itemName=premparihar.gotestexplorer) extension

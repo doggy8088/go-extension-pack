@@ -100,7 +100,6 @@ This extension pack include some of the popular (and some of my favorite) Go ext
 
 * Editing
   * `Alt-o`: **Go: Show All Commands...** (`go.show.commands`)
-  * `Alt-d`: **Go Doc: Get Definition** (`go-doc.get.def`)
 * Testing
   * `Alt-j Alt-j`: **Go: Toggle Test File** (`go.toggle.test.file`)
   * `Alt-j Alt-c`: **Go: Toggle Test Coverage In Current Package** (`go.test.coverage`)
@@ -155,6 +154,24 @@ This extension pack include some of the popular (and some of my favorite) Go ext
         "code-runner.saveAllFilesBeforeRun": true,
         "code-runner.ignoreSelection": true,
         "code-runner.runInTerminal": true
+    }
+    ```
+
+    There is also an important settings for Go run. By default, [Code Runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner) run script for currently opened Go file. But mostly we run entire main package in current directory. We need to configure `code-runner.executorMap` setting to achieve that by ignoring the file in the command line. The following setting are very platform-specific, so choose your platform and configure it.
+
+    **Windows Command Prompt**
+
+    ```json
+    "code-runner.executorMap": {
+        "go": "go run . & REM"
+    }
+    ```
+
+    **Linux/macOS/Shell/PowerShell**
+
+    ```json
+    "code-runner.executorMap": {
+        "go": "go run . #"
     }
     ```
 
