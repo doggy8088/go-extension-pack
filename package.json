@@ -2,7 +2,7 @@
   "name": "go-extension-pack",
   "displayName": "Go Extension Pack",
   "description": "Popular Visual Studio Code extensions for Go Development",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "publisher": "doggy8088",
   "icon": "icon.png",
   "preview": true,
@@ -10,6 +10,16 @@
   "engines": {
     "vscode": "^1.41.0"
   },
+  "license": "MIT",
+  "galleryBanner": {
+    "color": "#DAD0C2",
+    "theme": "light"
+  },
+  "keywords": [
+    "go",
+    "golang",
+    "code-snippets"
+  ],
   "categories": [
     "Extension Packs",
     "Snippets"

@@ -2,6 +2,12 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.12.2 - 2021-08-12
+
+* Update `README.md`
+* Update `LICENSE`
+* Add `galleryBanner` in package.json
+
 ## 0.12.1 - 2020-12-01
 
 * Update `README.md`
