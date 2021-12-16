@@ -2,6 +2,10 @@
 
 All notable changes to the "go-extension-pack" extension pack will be documented in this file.
 
+## 0.12.3 - 2021-12-16
+
+* Update `README.md`
+
 ## 0.12.2 - 2021-08-12
 
 * Update `README.md`
